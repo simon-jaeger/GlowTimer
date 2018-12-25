@@ -7,6 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="theme-color" content="#2d333b" />
     <link
       href="https://fonts.googleapis.com/css?family=Audiowide|Source+Code+Pro"
       rel="stylesheet"
@@ -22,30 +23,21 @@
 
   <body>
     <div class="app">
-      <main class="main">
-        <time class="clock">
-          <span class="clock_mins">25</span> <span class="clock_secs">00</span>
-        </time>
+      <main class="timer">
+        <div class="timer_mins">25</div>
+        <div class="timer_secs">00</div>
 
-        <fieldset class="controls">
-          <button class="controls_reset" title="Reset">
-            <img src="images/reset.svg" alt="Reset" />
-          </button>
-          <button class="controls_play" title="Play">
-            <img src="images/play.svg" alt="Play" />
-          </button>
-          <button class="controls_help" title="Help">
-            <img src="images/help.svg" alt="Help" />
-          </button>
-        </fieldset>
+        <button class="timer_button -reset" title="Reset">
+          <img src="images/reset.svg" alt="Reset" />
+        </button>
+        <button class="timer_button -play" title="Play">
+          <img src="images/play.svg" alt="Play" />
+        </button>
+        <button class="timer_button -help" title="Help">
+          <img src="images/help.svg" alt="Help" />
+        </button>
 
-        <dl class="settings">
-          <dt>Pomodoro:</dt>
-          <dd>25</dd>
-
-          <dt>Break:</dt>
-          <dd>5</dd>
-        </dl>
+        <p class="timer_settings">Pomodoro: 25 &nbsp;&nbsp; Break: 5</p>
       </main>
 
       <footer class="footer">

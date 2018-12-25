@@ -5,14 +5,15 @@
   --black: #2d333b;
   --blackDark: #272d34;
   --cyan: #0ee9b4;
-  --bodyFont: "Source Code Pro", sans-serif;
-  --headingFont: "Audiowide", sans-serif;
+  --cyanAlpha: rgba(14, 233, 180, 0.6);
+  --fontNormal: "Source Code Pro", sans-serif;
+  --fontSpecial: "Audiowide", sans-serif;
 }
 
 /* blocks */
 /******************************************************************************/
 body {
-  font-family: var(--bodyFont);
+  font-family: var(--fontNormal);
   font-size: 1rem;
   line-height: 1.5;
   background-color: var(--black);
@@ -38,17 +39,53 @@ a:active:not([class]) {
   min-height: 100vh;
   display: grid;
   grid-template:
-    "main" 1fr
+    "timer" 1fr
     "footer" 3rem
     / 1fr;
 }
 
-.main {
-  grid-area: main;
+.timer {
+  grid-area: timer;
   display: grid;
-  align-content: start;
   justify-content: center;
+  align-content: start;
+  place-items: center;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 3rem;
+  grid-template:
+    "clock clock clock" 18rem
+    "reset play help" 5rem
+    "settings settings settings" 1.5rem
+    / 5rem 5rem 5rem;
   padding: 2rem;
+  color: var(--cyan);
+}
+.timer_mins {
+  grid-area: clock;
+  font-family: var(--fontSpecial);
+  font-size: 6rem;
+  text-shadow: 0 0 8px var(--cyanAlpha);
+  color: var(--black);
+  -webkit-text-stroke: 2px var(--cyan);
+}
+.timer_secs {
+  grid-area: clock;
+  margin-top: 10rem;
+  font-family: var(--fontSpecial);
+}
+.timer_button.-reset {
+  grid-area: reset;
+  justify-self: end;
+}
+.timer_button.-play {
+  grid-area: play;
+}
+.timer_button.-help {
+  grid-area: help;
+  justify-self: start;
+}
+.timer_settings {
+  grid-area: settings;
 }
 
 .footer {
@@ -62,4 +99,13 @@ a:active:not([class]) {
 }
 .footer_inner > * {
   display: inline;
+}
+
+/* responsive (simple) */
+/******************************************************************************/
+
+@media (min-width: 1000px) {
+  :root{
+    font-size: 20px;
+  }
 }
