@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#2d333b" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="meta/icon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Audiowide|Source+Code+Pro"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/main.css" />
+    <script src="script/main.js" defer></script>
+
+    <title>25:00 – GlowTimer</title>
+    <meta name="description" content="GlowTimer by Simon Jaeger" />
+  </head>
+
+  <body>
+    <div class="layout">
+      <main class="main">
+        <article class="timer" aria-label="Timer">
+          <section class="clock" aria-label="Clock">
+            <svg
+              class="progressRing"
+              viewBox="0 0 128 128"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                class="progressRing_bg"
+                cx="64"
+                cy="64"
+                r="62"
+                stroke-width="2"
+              />
+              <circle
+                class="progressRing_fill"
+                cx="64"
+                cy="64"
+                r="62"
+                stroke-width="2"
+                stroke-dasharray="389.55"
+              />
+              <!-- 389.55: full circumference -->
+            </svg>
+            <div class="mins">00</div>
+            <div class="secs">00</div>
+          </section>
+
+          <section class="controls" aria-label="Controls">
+            <button class="button" title="Reset" onclick="resetTimer()">
+              <img src="images/reset.svg" alt="Reset" />
+            </button>
+            <button class="button -play" title="Play" onclick="playTimer()">
+              <img src="images/play.svg" alt="Play" />
+            </button>
+            <button
+              class="button -pause"
+              hidden
+              title="Pause"
+              onclick="pauseTimer()"
+            >
+              <img src="images/pause.svg" alt="Pause" />
+            </button>
+            <a
+              class="button"
+              title="Help"
+              href="https://github.com/simon-jaeger/GlowTimer"
+              target="_blank"
+            >
+              <img src="images/help.svg" alt="Help" />
+            </a>
+          </section>
+        </article>
+      </main>
+
+      <footer class="footer">
+        <div class="footer_inner">
+          <h1>
+            <a
+              href="https://github.com/simon-jaeger/GlowTimer"
+              target="_blank"
+              >GlowTimer</a
+            >
+          </h1>
+          by
+          <a href="https://simon-jaeger.github.io" target="_blank"
+            >Simon Jaeger</a
+          >
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

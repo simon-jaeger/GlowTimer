@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "dev": "browser-sync start --port 3010 --directory --server \"./app/\" --files \"./app/**/*\" --browser \"chrome\""
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "prettier": "^1.15.1"
+  },
+  "dependencies": {},
+  "prettier": {
+    "trailingComma": "all"
+  }
+}
