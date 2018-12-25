@@ -39,59 +39,31 @@ a:active:not([class]) {
   min-height: 100vh;
   display: grid;
   grid-template:
-    "timer" 1fr
+    "main" 1fr
     "footer" 3rem
     / 1fr;
 }
 
-.timer {
-  grid-area: timer;
+.main {
+  grid-area: main;
   display: grid;
   justify-content: center;
-  align-content: start;
-  place-items: center;
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 3rem;
-  grid-template:
-    "clock clock clock" 18rem
-    "reset play help" 5rem
-    "settings settings settings" 1.5rem
-    / 5rem 5rem 5rem;
+  grid-template-columns: 18rem;
   padding: 2rem;
+}
+.main_inner {
+  display: grid;
+  grid-gap: 3rem;
+  align-content: start;
+  justify-items: center;
   color: var(--cyan);
-}
-.timer_mins {
-  grid-area: clock;
-  font-family: var(--fontSpecial);
-  font-size: 6rem;
-  text-shadow: 0 0 8px var(--cyanAlpha);
-  color: var(--black);
-  -webkit-text-stroke: 2px var(--cyan);
-}
-.timer_secs {
-  grid-area: clock;
-  margin-top: 10rem;
-  font-family: var(--fontSpecial);
-}
-.timer_button.-reset {
-  grid-area: reset;
-  justify-self: end;
-}
-.timer_button.-play {
-  grid-area: play;
-}
-.timer_button.-help {
-  grid-area: help;
-  justify-self: start;
-}
-.timer_settings {
-  grid-area: settings;
 }
 
 .footer {
   grid-area: footer;
   display: grid;
   place-content: center;
+  padding: 0 2rem;
   background-color: var(--blackDark);
 }
 .footer_inner {
@@ -101,11 +73,34 @@ a:active:not([class]) {
   display: inline;
 }
 
+.clock {
+  width: 18rem;
+  height: 18rem;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  font-family: var(--fontSpecial);
+}
+.clock_mins {
+  font-size: 6rem;
+  text-shadow: 0 0 8px var(--cyanAlpha);
+  color: var(--black);
+  -webkit-text-stroke: 2px var(--cyan);
+}
+
+.controls{
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
 /* responsive (simple) */
 /******************************************************************************/
 
 @media (min-width: 1000px) {
-  :root{
+  :root {
     font-size: 20px;
   }
 }

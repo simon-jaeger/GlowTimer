@@ -23,21 +23,28 @@
 
   <body>
     <div class="app">
-      <main class="timer">
-        <div class="timer_mins">25</div>
-        <div class="timer_secs">00</div>
+      <main class="main">
+        <div class="main_inner">
+          <section class="clock" aria-label="Clock">
+            <span class="clock_mins">25</span> 00
+          </section>
 
-        <button class="timer_button -reset" title="Reset">
-          <img src="images/reset.svg" alt="Reset" />
-        </button>
-        <button class="timer_button -play" title="Play">
-          <img src="images/play.svg" alt="Play" />
-        </button>
-        <button class="timer_button -help" title="Help">
-          <img src="images/help.svg" alt="Help" />
-        </button>
+          <section class="controls" aria-label="Controls">
+            <button title="Reset">
+              <img src="images/reset.svg" alt="Reset" />
+            </button>
+            <button title="Play">
+              <img src="images/play.svg" alt="Play" />
+            </button>
+            <button title="Help">
+              <img src="images/help.svg" alt="Help" />
+            </button>
+          </section>
 
-        <p class="timer_settings">Pomodoro: 25 &nbsp;&nbsp; Break: 5</p>
+          <section aria-label="Settings">
+            Pomodoro: 25 &nbsp;&nbsp; Break: 5
+          </section>
+        </div>
       </main>
 
       <footer class="footer">
@@ -51,7 +58,7 @@
           </h1>
           by
           <a href="https://simon-jaeger.github.io/" target="_blank"
-            >Simon Jäger</a
+            >Simon Jaeger</a
           >
         </div>
       </footer>
