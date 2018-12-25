@@ -22,28 +22,27 @@
   </head>
 
   <body>
-    <div class="app">
+    <div class="layout">
       <main class="main">
-        <div class="main_inner">
-          <section class="clock" aria-label="Clock">
-            <span class="clock_mins">25</span> 00
-          </section>
+        <div class="timer">
+          <!--TODO: configurable with query string-->
+          <div class="clock">
+            <div class="clock_ring -p75"></div>
+            <div class="clock_mins">25</div>
+            <div class="clock_secs">00</div>
+          </div>
 
-          <section class="controls" aria-label="Controls">
-            <button title="Reset">
+          <div class="controls">
+            <button class="controls_button" title="Reset">
               <img src="images/reset.svg" alt="Reset" />
             </button>
-            <button title="Play">
+            <button class="controls_button" title="Play">
               <img src="images/play.svg" alt="Play" />
             </button>
-            <button title="Help">
+            <button class="controls_button" title="Help">
               <img src="images/help.svg" alt="Help" />
             </button>
-          </section>
-
-          <section aria-label="Settings">
-            Pomodoro: 25 &nbsp;&nbsp; Break: 5
-          </section>
+          </div>
         </div>
       </main>
 

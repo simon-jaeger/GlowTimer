@@ -28,35 +28,29 @@ a:visited:not([class]) {
   text-decoration: underline;
 }
 a:hover:not([class]),
+a:focus:not([class]),
 a:active:not([class]) {
   color: var(--cyan);
   text-decoration: none;
 }
 
-/* components */
+/* layout */
 /******************************************************************************/
-.app {
+.layout {
   min-height: 100vh;
   display: grid;
   grid-template:
     "main" 1fr
-    "footer" 3rem
-    / 1fr;
+    "footer" 3rem;
+  overflow: hidden;
 }
 
 .main {
   grid-area: main;
   display: grid;
   justify-content: center;
-  grid-template-columns: 18rem;
-  padding: 2rem;
-}
-.main_inner {
-  display: grid;
-  grid-gap: 3rem;
   align-content: start;
-  justify-items: center;
-  color: var(--cyan);
+  padding: 2rem;
 }
 
 .footer {
@@ -73,13 +67,50 @@ a:active:not([class]) {
   display: inline;
 }
 
-.clock {
+/* timer */
+/******************************************************************************/
+.timer {
   width: 18rem;
-  height: 18rem;
   display: grid;
-  place-content: center;
-  justify-items: center;
+  grid-gap: 3rem;
+  grid-template:
+    "clock" 18rem
+    "controls" 4rem;
+  color: var(--cyan);
+}
+
+.clock {
+  grid-area: clock;
+  display: grid;
+  place-items: center;
   font-family: var(--fontSpecial);
+}
+.clock > * {
+  grid-row: 1;
+  grid-column: 1;
+}
+.clock_ring {
+  align-self: stretch;
+  justify-self: stretch;
+  border: 4px solid var(--cyan);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 2px var(--cyanAlpha));
+  transform: rotate(-45deg);
+}
+.clock_ring.-p75 {
+  border-top-color: var(--blackDark);
+}
+.clock_ring.-p50 {
+  border-top-color: var(--blackDark);
+  border-left-color: var(--blackDark);
+}
+.clock_ring.-p25 {
+  border-top-color: var(--blackDark);
+  border-left-color: var(--blackDark);
+  border-bottom-color: var(--blackDark);
+}
+.clock_ring.-p0 {
+  border-color: var(--blackDark);
 }
 .clock_mins {
   font-size: 6rem;
@@ -87,13 +118,28 @@ a:active:not([class]) {
   color: var(--black);
   -webkit-text-stroke: 2px var(--cyan);
 }
+.clock_secs {
+  position: relative;
+  top: 30%;
+}
 
-.controls{
+.controls {
+  grid-area: controls;
   display: grid;
   grid-auto-flow: column;
   grid-gap: 2rem;
-  justify-content: center;
+  place-content: center;
   align-items: center;
+}
+.controls_button:hover,
+.controls_button:focus {
+  filter: drop-shadow(0 0 2px var(--cyanAlpha));
+}
+
+.settings {
+  grid-area: settings;
+  display: grid;
+  place-content: center;
 }
 
 /* responsive (simple) */
