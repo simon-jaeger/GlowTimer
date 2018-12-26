@@ -27,19 +27,41 @@
         <div class="timer">
           <!--TODO: configurable with query string-->
           <div class="clock">
-            <div class="clock_ring -p75"></div>
-            <div class="clock_mins">25</div>
-            <div class="clock_secs">00</div>
+            <svg
+              class="progressRing"
+              viewBox="0 0 128 128"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle
+                class="progressRing_bg"
+                cx="64"
+                cy="64"
+                r="62"
+                stroke-width="2"
+              />
+              <circle
+                class="progressRing_fill"
+                cx="64"
+                cy="64"
+                r="62"
+                stroke-width="2"
+                stroke-dasharray="389.55"
+              />
+              <!-- 389.55: full circumference -->
+            </svg>
+            <div class="mins">25</div>
+            <div class="secs">00</div>
           </div>
 
           <div class="controls">
-            <button class="controls_button" title="Reset">
+            <button class="button" title="Reset">
               <img src="images/reset.svg" alt="Reset" />
             </button>
-            <button class="controls_button" title="Play">
+            <button class="button" title="Play">
               <img src="images/play.svg" alt="Play" />
             </button>
-            <button class="controls_button" title="Help">
+            <button class="button" title="Help">
               <img src="images/help.svg" alt="Help" />
             </button>
           </div>

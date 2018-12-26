@@ -52,10 +52,6 @@ video {
   vertical-align: middle;
 }
 
-svg:not([fill]) {
-  fill: currentColor;
-}
-
 button,
 [aria-controls] {
   cursor: pointer;

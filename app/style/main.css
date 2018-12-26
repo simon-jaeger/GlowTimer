@@ -8,6 +8,7 @@
   --cyanAlpha: rgba(14, 233, 180, 0.6);
   --fontNormal: "Source Code Pro", sans-serif;
   --fontSpecial: "Audiowide", sans-serif;
+  --glow: drop-shadow(0 0 2px var(--cyanAlpha));
 }
 
 /* blocks */
@@ -89,36 +90,27 @@ a:active:not([class]) {
   grid-row: 1;
   grid-column: 1;
 }
-.clock_ring {
+.progressRing {
   align-self: stretch;
   justify-self: stretch;
-  border: 4px solid var(--cyan);
-  border-radius: 50%;
-  filter: drop-shadow(0 0 2px var(--cyanAlpha));
-  transform: rotate(-45deg);
+  filter: var(--glow);
+  transform: rotate(-90deg);
 }
-.clock_ring.-p75 {
-  border-top-color: var(--blackDark);
+.progressRing_bg {
+  stroke: var(--blackDark);
 }
-.clock_ring.-p50 {
-  border-top-color: var(--blackDark);
-  border-left-color: var(--blackDark);
+.progressRing_fill {
+  stroke: var(--cyan);
+  stroke-dashoffset: 200;
+  transition: stroke-dashoffset 0.5s;
 }
-.clock_ring.-p25 {
-  border-top-color: var(--blackDark);
-  border-left-color: var(--blackDark);
-  border-bottom-color: var(--blackDark);
-}
-.clock_ring.-p0 {
-  border-color: var(--blackDark);
-}
-.clock_mins {
+.mins {
   font-size: 6rem;
-  text-shadow: 0 0 8px var(--cyanAlpha);
-  color: var(--black);
+  filter: var(--glow);
+  color: transparent;
   -webkit-text-stroke: 2px var(--cyan);
 }
-.clock_secs {
+.secs {
   position: relative;
   top: 30%;
 }
@@ -131,20 +123,13 @@ a:active:not([class]) {
   place-content: center;
   align-items: center;
 }
-.controls_button:hover,
-.controls_button:focus {
-  filter: drop-shadow(0 0 2px var(--cyanAlpha));
-}
-
-.settings {
-  grid-area: settings;
-  display: grid;
-  place-content: center;
+.button:hover,
+.button:focus {
+  filter: var(--glow);
 }
 
 /* responsive (simple) */
 /******************************************************************************/
-
 @media (min-width: 1000px) {
   :root {
     font-size: 20px;
