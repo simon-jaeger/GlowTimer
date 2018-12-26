@@ -101,7 +101,7 @@ a:active:not([class]) {
 }
 .progressRing_fill {
   stroke: var(--cyan);
-  stroke-dashoffset: 200;
+  stroke-dashoffset: 100;
   transition: stroke-dashoffset 0.5s;
 }
 .mins {
