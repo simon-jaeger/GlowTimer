@@ -50,18 +50,18 @@
               />
               <!-- 389.55: full circumference -->
             </svg>
-            <div class="mins">25</div>
+            <div class="mins">00</div>
             <div class="secs">00</div>
           </section>
 
           <section class="controls">
-            <button class="button" title="Reset">
+            <button class="button" title="Reset" onclick="resetTimer()">
               <img src="images/reset.svg" alt="Reset" />
             </button>
-            <button class="button" title="Play" onclick="startTimer()">
-              <img src="images/play.svg" alt="Play" />
+            <button class="button" title="Toggle" onclick="playTimer()">
+              <img src="images/play.svg" alt="Toggle" />
             </button>
-            <button class="button" title="Help">
+            <button class="button" title="Help" onclick="pauseTimer()">
               <img src="images/help.svg" alt="Help" />
             </button>
           </section>
