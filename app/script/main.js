@@ -1,3 +1,8 @@
+// TODO: toggle play button
+// TODO: help button link to repo
+// TODO: deployment (now, surge.sh, ...)
+// TODO: public, open beta
+
 // utils
 ////////////////////////////////////////////////////////////////////////////////
 const milisecsToMMSS = milisecs => {
@@ -10,9 +15,13 @@ const milisecsToMMSS = milisecs => {
 const $ = document.querySelector.bind(document);
 
 // main
-////////////////////////////////////////////////////////////////////////////////
+/////////////////////////// /////////////////////////////////////////////////////
+let pomodoro =
+  new URLSearchParams(window.location.search).get("pomodoro") || 25;
+
 let tick;
-let duration = 0.1 * 60 * 1000;
+let notification;
+let duration = pomodoro * 60 * 1000;
 let start = Date.now();
 let end = start + duration;
 let timeLeft = duration;
@@ -23,7 +32,7 @@ const $ring = $(".progressRing_fill");
 
 function render() {
   const mmss = milisecsToMMSS(timeLeft);
-  document.title = mmss + " – Pomodoro";
+  document.title = mmss + " – PomodoroTimer";
   $mins.textContent = mmss.slice(0, 2);
   $secs.textContent = mmss.slice(3, 5);
   $ring.style.strokeDashoffset =
@@ -32,6 +41,7 @@ function render() {
 
 function playTimer() {
   clearInterval(tick);
+  if (notification) notification.close();
   if (timeLeft < duration) {
     console.log("timer resumed");
     start = Date.now() - (duration - timeLeft);
@@ -48,6 +58,7 @@ function playTimer() {
       clearInterval(tick);
       timeLeft = duration;
       console.log("timer finished");
+      notify();
     }
   }, 1000);
 }
@@ -59,11 +70,24 @@ function pauseTimer() {
 
 function resetTimer() {
   clearInterval(tick);
+  if (notification) notification.close();
   timeLeft = duration;
   console.log("timer reset");
   render();
 }
 
+function notify() {
+  notification = new Notification("PomodoroTimer", {
+    body: "Take a break!",
+    icon: "meta/icon-192x192.png",
+    requireInteraction: true,
+  });
+}
+
 // init
 ////////////////////////////////////////////////////////////////////////////////
+Notification.requestPermission().then(permission => {
+  console.log("notification permission: " + permission);
+});
+
 render();
