@@ -9,10 +9,10 @@
     />
     <meta name="theme-color" content="#2d333b" />
     <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="meta/icon-32x32.png"
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="meta/icon-32x32.png"
     />
     <link
       href="https://fonts.googleapis.com/css?family=Audiowide|Source+Code+Pro"
@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="style/main.css" />
     <script src="script/main.js" defer></script>
 
-    <title>25:00 – PomodoroTimer</title>
-    <meta name="description" content="PomodoroTimer by Simon Jaeger" />
+    <title>25:00 – GlowTimer</title>
+    <meta name="description" content="GlowTimer by Simon Jaeger" />
   </head>
 
   <body>
@@ -62,12 +62,25 @@
             <button class="button" title="Reset" onclick="resetTimer()">
               <img src="images/reset.svg" alt="Reset" />
             </button>
-            <button class="button" title="Toggle" onclick="playTimer()">
-              <img src="images/play.svg" alt="Toggle" />
+            <button class="button -play" title="Play" onclick="playTimer()">
+              <img src="images/play.svg" alt="Play" />
             </button>
-            <button class="button" title="Help" onclick="pauseTimer()">
+            <button
+              class="button -pause"
+              hidden
+              title="Pause"
+              onclick="pauseTimer()"
+            >
+              <img src="images/pause.svg" alt="Pause" />
+            </button>
+            <a
+              class="button"
+              title="Help"
+              href="https://github.com/simon-jaeger/GlowTimer"
+              target="_blank"
+            >
               <img src="images/help.svg" alt="Help" />
-            </button>
+            </a>
           </section>
         </article>
       </main>
@@ -76,13 +89,13 @@
         <div class="footer_inner">
           <h1>
             <a
-              href="https://github.com/simon-jaeger/PomodoroTimer"
+              href="https://github.com/simon-jaeger/GlowTimer"
               target="_blank"
-              >PomodoroTimer</a
+              >GlowTimer</a
             >
           </h1>
           by
-          <a href="https://simon-jaeger.github.io/" target="_blank"
+          <a href="https://simon-jaeger.github.io" target="_blank"
             >Simon Jaeger</a
           >
         </div>

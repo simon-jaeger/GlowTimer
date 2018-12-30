@@ -1,8 +1,3 @@
-// TODO: toggle play button
-// TODO: help button link to repo
-// TODO: deployment (now, surge.sh, ...)
-// TODO: public, open beta
-
 // utils
 ////////////////////////////////////////////////////////////////////////////////
 const milisecsToMMSS = milisecs => {
@@ -29,10 +24,12 @@ let timeLeft = duration;
 const $mins = $(".mins");
 const $secs = $(".secs");
 const $ring = $(".progressRing_fill");
+const $play = $(".button.-play");
+const $pause = $(".button.-pause");
 
 function render() {
   const mmss = milisecsToMMSS(timeLeft);
-  document.title = mmss + " – PomodoroTimer";
+  document.title = mmss + " – GlowTimer";
   $mins.textContent = mmss.slice(0, 2);
   $secs.textContent = mmss.slice(3, 5);
   $ring.style.strokeDashoffset =
@@ -42,6 +39,8 @@ function render() {
 function playTimer() {
   clearInterval(tick);
   if (notification) notification.close();
+  $play.toggleAttribute("hidden");
+  $pause.toggleAttribute("hidden");
   if (timeLeft < duration) {
     console.log("timer resumed");
     start = Date.now() - (duration - timeLeft);
@@ -65,12 +64,16 @@ function playTimer() {
 
 function pauseTimer() {
   clearInterval(tick);
+  $play.toggleAttribute("hidden");
+  $pause.toggleAttribute("hidden");
   console.log("timer paused");
 }
 
 function resetTimer() {
   clearInterval(tick);
   if (notification) notification.close();
+  $play.removeAttribute("hidden");
+  $pause.setAttribute("hidden", "");
   timeLeft = duration;
   console.log("timer reset");
   render();
